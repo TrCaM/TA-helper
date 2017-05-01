@@ -1,0 +1,36 @@
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" hgap="10" vgap="10">
+    <padding>
+        <Insets top="10" left="20"/></padding>
+    <Text id="welcome" text="Welcome to TA unzip"
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        GridPane.columnSpan="2"/>
+    <Label text="Zip file: "
+        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField promptText="File URL..."
+        GridPane.columnIndex="1" GridPane.rowIndex="1"
+        prefWidth="500"/>
+    <Button text="Choose file"
+        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Label text="Options:"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <fx:define>
+        <ToggleGroup fx:id="options"/></fx:define>
+    <children>
+        <RadioButton fx:id="1" text="Only unzip the outer file" toggleGroup="$options" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <RadioButton fx:id="2" text="Unzip the 1 level inside" toggleGroup="$options" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <RadioButton fx:id="3" text="Unzip deep down" toggleGroup="$options"  GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    </children>
+    <Button text="Start"
+        GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
+    <ScrollPane GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.rowSpan="5" GridPane.columnSpan="3">
+        <TextArea prefWidth="650"></TextArea>
+    </ScrollPane>
+</GridPane>
