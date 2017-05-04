@@ -27,6 +27,7 @@ public class UnzipUtility {
     public void unzip(String zipFilePath, String destDirectory, int calls) throws IOException {
         File destDir = new File(destDirectory);
         if (!destDir.exists()){
+            System.out.println("Make dir root");
             destDir.mkdir();
         }
         ZipInputStream zipIn = new ZipInputStream(new FileInputStream(zipFilePath));
@@ -34,15 +35,18 @@ public class UnzipUtility {
         // iterates over entries in the zip file
         while(entry != null){
             String filePath = destDirectory + File.separator + entry.getName();
+            System.out.println("Unzipping: " + filePath);
             if (!entry.isDirectory()){
                 extractFile(zipIn, filePath);
-                if (calls!= 0 && (FilenameUtils.getExtension(entry.getName())== "zip")){
-                    unzip(filePath, FilenameUtils.getFullPathNoEndSeparator(filePath), calls-1);
-
+                System.out.println(FilenameUtils.getFullPathNoEndSeparator(filePath));
+                if (calls!= 0 && (FilenameUtils.getExtension(entry.getName()).equals("zip"))){
+                    unzip(filePath, filePath.replace(".zip", ""), calls-1);
+                    new File(filePath).delete();
                 }
 
             } else {
                 File dir = new File(filePath);
+                System.out.println("Make dir");
                 dir.mkdir();
             }
             zipIn.closeEntry();
@@ -58,7 +62,9 @@ public class UnzipUtility {
      * @throws IOException
      */
     private void extractFile(ZipInputStream zipIn, String filePath) throws IOException {
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filePath));
+        File file = new File(filePath);
+        file.getParentFile().mkdirs();
+        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
         byte[] bytes_in = new byte[BUFFER_SIZE];
         int read = 0;
         while ((read= zipIn.read(bytes_in))!= -1){
