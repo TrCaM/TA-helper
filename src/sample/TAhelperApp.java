@@ -14,12 +14,20 @@ public class TAhelperApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(TAhelperApp.class.getResource("sample.fxml"));
+        Parent root = loader.load();
         primaryStage.setTitle("TA Helper");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.setResizable(false);
+
+        // Give controller access to the main app
+        Controller controller = loader.getController();
+        controller.setMainApp(this, primaryStage);
+
         primaryStage.show();
     }
+
+//    public
 
 
     public static void main(String[] args) {

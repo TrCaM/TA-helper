@@ -1,8 +1,11 @@
 package sample;
 
+import javafx.application.Platform;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.zip.*;
 
 /**
@@ -12,22 +15,32 @@ import java.util.zip.*;
 
 /*Adapt from a online tutorial: http://www.codejava.net/java-se/file-io/programmatically-extract-a-zip-file-using-java */
 public class UnzipUtility {
+
+    Controller controller;
+
+    public UnzipUtility(Controller controller){
+        this.controller = controller;
+        threads = new LinkedList<>();
+    }
     /**
      * Size of the buffer to read/write data
      */
+    private static final int NUM_THREAD = 50;
     private static final int BUFFER_SIZE = 4096;
+
+    private LinkedList<Thread> threads;
 
     /**
      * Extracts a zip file specified by the zipFilePath to a directory specified by
      * destDirectory (will be created if does not exists)
-     * @param zipFilePath
-     * @param destDirectory
+     * @param zipFilePath the file to unzip
+     * @param destDirectory the folder where the unzip files will be in
+     * @param calls The number of recursive levels
      * @throws IOException
      */
     public void unzip(String zipFilePath, String destDirectory, int calls) throws IOException {
         File destDir = new File(destDirectory);
         if (!destDir.exists()){
-            System.out.println("Make dir root");
             destDir.mkdir();
         }
         ZipInputStream zipIn = new ZipInputStream(new FileInputStream(zipFilePath));
@@ -35,24 +48,47 @@ public class UnzipUtility {
         // iterates over entries in the zip file
         while(entry != null){
             String filePath = destDirectory + File.separator + entry.getName();
-            System.out.println("Unzipping: " + filePath);
+            synchronized (this) {
+                Platform.runLater(() -> controller.getLoadingField().appendText("Unzipping: " + filePath + "\n"));
+            }
             if (!entry.isDirectory()){
                 extractFile(zipIn, filePath);
-                System.out.println(FilenameUtils.getFullPathNoEndSeparator(filePath));
                 if (calls!= 0 && (FilenameUtils.getExtension(entry.getName()).equals("zip"))){
-                    unzip(filePath, filePath.replace(".zip", ""), calls-1);
-                    new File(filePath).delete();
+//                    unzip(filePath, filePath.replace(".zip", ""), calls-1);
+                    Thread thread = new Thread(){
+                        @Override
+                        public void run() {
+                            try {
+                                unzip(filePath, filePath.replace(".zip", ""), calls== -1? -1:(calls-1));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            if (!threads.isEmpty()) {
+//                                System.out.println(threads.toString());
+                                threads.removeFirst().start();
+                            }
+                            new File(filePath).delete();
+                        }
+                    };
+                    if (Thread.activeCount() <= NUM_THREAD) {
+                        thread.start();
+                    } else{
+                        threads.addLast(thread);
+                    }
+
+
+
                 }
 
             } else {
                 File dir = new File(filePath);
-                System.out.println("Make dir");
                 dir.mkdir();
             }
             zipIn.closeEntry();
             entry = zipIn.getNextEntry();
         }
         zipIn.close();
+//        System.out.println("done");
     }
 
     /**
