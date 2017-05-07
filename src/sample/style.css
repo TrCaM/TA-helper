@@ -1,0 +1,76 @@
+GridPane{
+    -fx-background-color: linear-gradient(cornflowerblue, #fff7a9);
+    -fx-font-family: "Arial";
+}
+
+.welcome, .header{
+    -fx-font-size: 50px;
+    -fx-fill: #e23443;
+    -fx-font-weight: bold;
+    -fx-column-halignment: center;
+    -fx-end-margin: 20px;
+}
+
+#back{
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+#back:hover{
+    -fx-effect: null;
+}
+.header{
+    -fx-font-size: 30px;
+}
+Label{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+RadioButton{
+    -fx-font-size: 15px;
+}
+
+#filename{
+    -fx-border-radius: 5px;
+    -fx-pref-height: 15px;
+    transform: 0.5s;
+    -fx-font-size: 17px;
+}
+
+#filename:focused{
+    -fx-border-color: red;
+
+}
+
+.choose{
+    -fx-background-color:
+            linear-gradient(#f0ff35, #a9ff00),
+            radial-gradient(center 50% -40%, radius 200%, #66e2dd 45%, blanchedalmond 50%);
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+    -fx-min-height: 35px;
+    -fx-font-weight: bold;
+}
+
+.choose:pressed{
+    -fx-background-color:
+            linear-gradient(#f0ff35, #a9ff00),
+            radial-gradient(center 50% -40%, radius 200%, #80c800 45%, #b8ee36 50%);
+}
+
+.main{
+    -fx-background-color: #48c8e2;
+    -fx-text-fill: #e22134;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.main:hover{
+    -fx-background-color: #4be253;
+}
+
+.main:pressed{
+    -fx-translate-y: 5px;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 10, 0.0 , 0 , 1 );
+}

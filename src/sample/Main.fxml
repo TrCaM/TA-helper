@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<GridPane hgap="15" vgap="15" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.MainController">
+    <padding>
+        <Insets left="20" top="15"/>
+    </padding>
+    <Text styleClass="welcome" text="Welcome to TA Helper" GridPane.columnIndex="0" GridPane.columnSpan="2"
+          GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
+    <Button styleClass="main" onAction="#handleUnzip" text="Unzip ultility" prefWidth="350" prefHeight="75"  GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Button styleClass="main" onAction="#handleMarker" text="Marking ultility" prefWidth="350" prefHeight="75" GridPane.halignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="350"/>
+        <ColumnConstraints prefWidth="350"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="300"/>
+        <RowConstraints prefHeight="200"/>
+
+    </rowConstraints>
+</GridPane>
+

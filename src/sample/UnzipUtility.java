@@ -16,9 +16,9 @@ import java.util.zip.*;
 /*Adapt from a online tutorial: http://www.codejava.net/java-se/file-io/programmatically-extract-a-zip-file-using-java */
 public class UnzipUtility {
 
-    Controller controller;
+    UnzipController controller;
 
-    public UnzipUtility(Controller controller){
+    public UnzipUtility(UnzipController controller){
         this.controller = controller;
         threads = new LinkedList<>();
     }
