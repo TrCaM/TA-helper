@@ -33,15 +33,9 @@ public class MainController extends Controller {
             FXMLLoader loader = new FXMLLoader(TAhelperApp.class.getResource("marker.fxml"));
             Parent root = loader.load();
             ((Controller) (loader.getController())).setMainApp(this.mainApp, this.primaryStage, this.mainScene);
-            markerUtil = new Scene(root, 1000, 900);
+            markerUtil = new Scene(root, 1000, 850);
         }
 
         primaryStage.setScene(markerUtil);
-    }
-
-
-    @Override
-    public void initScene() {
-
     }
 }

@@ -3,6 +3,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -61,16 +62,11 @@ public class UnzipController extends Controller {
      *
      * @param mainApp
      */
-    public void setMainApp(TAhelperApp mainApp, Stage primaryStage) {
+    public void setMainApp(TAhelperApp mainApp, Stage primaryStage, Scene scene) {
         this.mainApp = mainApp;
         this.primaryStage = primaryStage;
+        mainScene = scene;
         unzip = new UnzipUtility(this);
-    }
-
-    @Override
-    public void initScene() {
-        Image image = new Image("file:back-button.png");
-        back.setImage(image);
     }
 
     /**

@@ -14,51 +14,72 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.RadioButton?>
 <?import java.net.URL?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<GridPane hgap="15" vgap="15" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MarkerController">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane hgap="15" vgap="13" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MarkerController">
     <padding>
-        <Insets left="20" top="15" /></padding>
+        <Insets left="20" top="15"/>
+    </padding>
     <ImageView fx:id="back" onMousePressed="#backToMainScene" GridPane.columnIndex="0" GridPane.rowIndex="0" >
         <image>
             <Image url="@image/back-button.png" requestedHeight="75" requestedWidth="75"/>
         </image>
     </ImageView>
-    <Text styleClass="header" text="Marker Utility" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.halignment="CENTER" />
-    <Label text="Zip file: " GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <TextField fx:id="filename" id="filename"  minHeight="40" prefWidth="450" promptText="File URL..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <!--<Button onAction="#handleChooseButton" styleClass="choose" text="Browse" GridPane.columnIndex="2" GridPane.rowIndex="1" />-->
-    <Label text="Options:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-    <!--<Button onAction="#handleStartButton" styleClass="choose" text="START" minHeight="100" minWidth="80" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3" />-->
-    <ScrollPane GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="8" GridPane.rowSpan="5">
-        <TextArea fx:id="loadingField" editable="false" prefWidth="650" wrapText="true" />
+    <Text styleClass="header" text="Marker Utility" GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.halignment="CENTER"/>
+    <Label text="Zip file: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="filename" styleClass="filename" minHeight="40" prefWidth="450" promptText="File URL..."
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button onAction="#handleChooseButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
+            GridPane.rowIndex="1"/>
+    <Label text="Template file: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="templatename" styleClass="filename" minHeight="40" prefWidth="450" promptText="Template URL..."
+               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Button onAction="#handleTemplateButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
+            GridPane.rowIndex="2"/>
+    <Button onAction="#handleCreateButton" styleClass="choose" text="Create template" GridPane.columnIndex="3"
+            GridPane.rowIndex="2"/>
+    <Button onAction="#handleStartButton" styleClass="choose" text="START" minHeight="100" minWidth="80"
+            GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
+    <ScrollPane GridPane.columnIndex="0" prefHeight="500" prefWidth="900" GridPane.columnSpan="4" GridPane.rowIndex="8" GridPane.rowSpan="5">
+        <TableView fx:id="tableView" prefHeight="500" prefWidth="890">
+            <columns>
+                <TableColumn text="No" id="index" fx:id="index" prefWidth="50">
+                </TableColumn>
+                <TableColumn text="Name" style="-fx-text-alignment: left" prefWidth="600">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Mark"></TableColumn>
+                <TableColumn fx:id="buttons"></TableColumn>
+            </columns>
+        </TableView>
     </ScrollPane>
-    <fx:define>
-        <ToggleGroup fx:id="options" /></fx:define>
-    <children>
-        <RadioButton text="Only unzip the outer file" toggleGroup="$options" userData="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <RadioButton text="Unzip the 1 level inside" toggleGroup="$options" userData="1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-        <RadioButton text="Unzip deep down" toggleGroup="$options" userData="-1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-    </children>
     <columnConstraints>
-        <ColumnConstraints />
-        <ColumnConstraints />
-        <ColumnConstraints />
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints />
+        <RowConstraints/>
         <RowConstraints prefHeight="75"/>
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
-        <RowConstraints />
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
     </rowConstraints>
     <stylesheets>
         <URL value="@style.css"/>

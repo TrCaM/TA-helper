@@ -16,12 +16,14 @@ import java.util.zip.*;
 /*Adapt from a online tutorial: http://www.codejava.net/java-se/file-io/programmatically-extract-a-zip-file-using-java */
 public class UnzipUtility {
 
-    UnzipController controller;
+    Controller controller;
 
-    public UnzipUtility(UnzipController controller){
+    public UnzipUtility(Controller controller){
         this.controller = controller;
         threads = new LinkedList<>();
     }
+
+
     /**
      * Size of the buffer to read/write data
      */
@@ -48,9 +50,9 @@ public class UnzipUtility {
         // iterates over entries in the zip file
         while(entry != null){
             String filePath = destDirectory + File.separator + entry.getName();
-            synchronized (this) {
-                Platform.runLater(() -> controller.getLoadingField().appendText("Unzipping: " + filePath + "\n"));
-            }
+
+            updateScreen(entry.getName());
+
             if (!entry.isDirectory()){
                 extractFile(zipIn, filePath);
                 if (calls!= 0 && (FilenameUtils.getExtension(entry.getName()).equals("zip"))){
@@ -77,7 +79,6 @@ public class UnzipUtility {
                     }
 
 
-
                 }
 
             } else {
@@ -87,8 +88,27 @@ public class UnzipUtility {
             zipIn.closeEntry();
             entry = zipIn.getNextEntry();
         }
+        threads.forEach(thread -> {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        ((MarkerController)controller).updateTable();
         zipIn.close();
 //        System.out.println("done");
+    }
+
+    private synchronized void updateScreen(String filePath) {
+        if (controller instanceof UnzipController)
+            Platform.runLater(() -> ((UnzipController)controller).getLoadingField().appendText("Unzipping: " + filePath + "\n"));
+        else{
+            if (FilenameUtils.getExtension(filePath).equals("zip")){
+                String name = filePath.substring(0, filePath.indexOf('_')).replaceAll("-", " ");
+                Platform.runLater(() -> ((MarkerController)controller).addRecord(name));
+            }
+        }
     }
 
     /**

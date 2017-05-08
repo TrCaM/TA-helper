@@ -29,7 +29,7 @@ RadioButton{
     -fx-font-size: 15px;
 }
 
-#filename{
+.filename{
     -fx-border-radius: 5px;
     -fx-pref-height: 15px;
     transform: 0.5s;

@@ -24,9 +24,6 @@ public abstract class Controller {
         this.mainApp = mainApp;
         this.primaryStage = primaryStage;
         mainScene = scene;
-        if (this.primaryStage == null){
-            System.out.println("null");
-        }
     }
 
     public void reportError(String message){
@@ -36,8 +33,6 @@ public abstract class Controller {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-    public abstract void initScene();
 
     public void backToMainScene(){
         primaryStage.setScene(mainScene);
