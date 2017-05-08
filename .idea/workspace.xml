@@ -704,7 +704,7 @@
       <updated>1494082522868</updated>
       <workItem from="1494082527499" duration="34054000" />
       <workItem from="1494162485397" duration="47066000" />
-      <workItem from="1494261280138" duration="648000" />
+      <workItem from="1494261280138" duration="654000" />
     </task>
     <task id="LOCAL-00001" summary="Done transition between scene">
       <created>1494117171188</created>
@@ -720,11 +720,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494262198833</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Done Marking Template Creating">
+      <created>1494262207670</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1494262207670</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81768000" />
+    <option name="totallyTimeSpent" value="81774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1406" extended-state="6" />
@@ -828,20 +835,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="67" column="26" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding>
-            <element signature="e#514#515#0" expanded="false" />
-            <element signature="e#545#546#0" expanded="false" />
-            <element signature="e#596#597#0" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-            <element signature="e#677#678#0" expanded="false" />
-            <element signature="e#712#713#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-            <element signature="e#818#819#0" expanded="false" />
-            <element signature="e#857#858#0" expanded="false" />
-            <element signature="e#887#888#0" expanded="false" />
-            <element signature="e#938#939#0" expanded="false" />
-            <element signature="e#976#977#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -884,9 +878,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
