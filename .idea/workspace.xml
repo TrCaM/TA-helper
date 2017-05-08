@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49c82756-0ffb-4cab-ae5f-f5c58255adc6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Record.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Requirement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Section.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/SectionControler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/SerialSimpleFloatProperty.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/Template.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/TemplateControler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/section.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sample/template.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TA-unzip/sample/Controller.class" afterPath="$PROJECT_DIR$/out/production/TA-unzip/sample/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_5_javadoc.xml" afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_5_javadoc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/sample/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/MainController.java" afterPath="$PROJECT_DIR$/src/sample/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/MarkerController.java" afterPath="$PROJECT_DIR$/src/sample/MarkerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/UnzipController.java" afterPath="$PROJECT_DIR$/src/sample/UnzipController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/UnzipUtility.java" afterPath="$PROJECT_DIR$/src/sample/UnzipUtility.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/marker.fxml" afterPath="$PROJECT_DIR$/src/sample/marker.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/style.css" afterPath="$PROJECT_DIR$/src/sample/style.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -721,7 +704,7 @@
       <updated>1494082522868</updated>
       <workItem from="1494082527499" duration="34054000" />
       <workItem from="1494162485397" duration="47066000" />
-      <workItem from="1494261280138" duration="596000" />
+      <workItem from="1494261280138" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="Done transition between scene">
       <created>1494117171188</created>
@@ -730,11 +713,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494117171188</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Done Marking Template Creating">
+      <created>1494262198833</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1494262198833</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81716000" />
+    <option name="totallyTimeSpent" value="81768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1406" extended-state="6" />
@@ -780,7 +770,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Done transition between scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done transition between scene" />
+    <MESSAGE value="Done Marking Template Creating" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done Marking Template Creating" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -837,6 +828,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1000">
           <caret line="67" column="26" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding>
+            <element signature="e#514#515#0" expanded="false" />
+            <element signature="e#545#546#0" expanded="false" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#636#637#0" expanded="false" />
+            <element signature="e#677#678#0" expanded="false" />
+            <element signature="e#712#713#0" expanded="false" />
+            <element signature="e#770#771#0" expanded="false" />
+            <element signature="e#818#819#0" expanded="false" />
+            <element signature="e#857#858#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
+            <element signature="e#938#939#0" expanded="false" />
+            <element signature="e#976#977#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -844,6 +849,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3050">
           <caret line="128" column="9" lean-forward="true" selection-start-line="128" selection-start-column="9" selection-end-line="128" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -862,9 +868,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,6 +876,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1900">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -879,6 +884,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -926,6 +934,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -933,6 +942,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="36" column="42" lean-forward="true" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -943,6 +953,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="26" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
@@ -964,6 +975,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1900">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -985,6 +997,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-97">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,6 +1048,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,6 +1075,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="478">
           <caret line="36" column="9" lean-forward="true" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,6 +1180,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="40" lean-forward="false" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#336#337#0" expanded="true" />
+            <element signature="e#371#372#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
