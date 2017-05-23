@@ -14,6 +14,7 @@ public class Record {
 
     public Record(String name) {
         this.name = name;
+        this.mark = 0;
     }
 
     public String getName() {

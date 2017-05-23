@@ -7,26 +7,32 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import jdk.nashorn.internal.parser.JSONParser;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MarkerController extends Controller {
+
 
     private UnzipUtility unzip;
     private String chooseDirectory;
@@ -50,6 +56,8 @@ public class MarkerController extends Controller {
     @FXML private TextField templatename;
     @FXML private TableView tableView;
     @FXML private TableColumn index;
+    @FXML private TableColumn mark;
+    @FXML private TableColumn edit;
 
     public ImageView getBack() {
         return back;
@@ -72,6 +80,7 @@ public class MarkerController extends Controller {
         this.mainScene = scene;
         unzip = new UnzipUtility(this);
         records = new ArrayList<>();
+        tableView.setEditable(true);
     }
 
     /**
@@ -79,11 +88,11 @@ public class MarkerController extends Controller {
      */
     public void handleChooseButton(){
         FileChooser chooser = new FileChooser();
-        chooser.setTitle("Open Zip file");
+        chooser.setTitle("Open CSV file");
         if (chooseDirectory != null)
             chooser.setInitialDirectory(new File(chooseDirectory));
         // Set extentsion filter
-        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Zip files (*.zip)", "*.zip");
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
         chooser.getExtensionFilters().add(filter);
 
         // Open dialog
@@ -113,8 +122,8 @@ public class MarkerController extends Controller {
      * Opens a FileChooser to let the user select an zip file to extract
      */
     public void handleStartButton(){
-        if(!FilenameUtils.getExtension(filename.getText()).equals("zip")){
-            reportError("Please choose a zip file!");
+        if(!FilenameUtils.getExtension(filename.getText()).equals("csv")){
+            reportError("Please choose a csv file!");
             return;
         }
         File file = new File(filename.getText());
@@ -123,12 +132,30 @@ public class MarkerController extends Controller {
             return;
         }
         records.clear();
+
+        BufferedReader in = null;
         try {
-            unzip.unzip(filename.getText(), filename.getText().replace(".zip", ""), 1);
-        } catch (IOException e) {
-            reportError("Error extracting zip file");
-            return;
+            in = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            reportError("File not found");
         }
+        Scanner scanner = new Scanner(in);
+        scanner.useDelimiter(",");
+        scanner.nextLine();
+        for (int i = 0; i < 10; i++) {
+            String fname = scanner.next();
+            System.out.println(fname +" "+ i);
+        }
+
+
+        scanner.close();
+
+//        try {
+//            unzip.unzip(filename.getText(), filename.getText().replace(".zip", ""), 1);
+//        } catch (IOException e) {
+//            reportError("Error extracting zip file");
+//            return;
+//        }
     }
 
     public void addRecord(String name){
@@ -143,6 +170,25 @@ public class MarkerController extends Controller {
                 return new ReadOnlyObjectWrapper(p.getValue());
             }
         });
+
+        edit.setCellFactory(TextFieldTableCell.forTableColumn());
+        edit.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Record, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Record, String> t) {
+                        if (!t.getNewValue().equals("") && NumberUtils.isCreatable(t.getNewValue())) {
+                            float mark = Float.parseFloat(t.getNewValue());
+                            ((Record) t.getTableView().getItems().get(
+                                    t.getTablePosition().getRow())
+                            ).setMark(mark);
+                        }
+                        t.getTableView().refresh();
+                        tableView.requestFocus();
+                        tableView.getFocusModel().focus(t.getTablePosition().getRow()+1);
+                        tableView.getSelectionModel().select(t.getTablePosition().getRow()+1, edit);
+                    }
+                }
+        );
 
         index.setCellFactory(new Callback<TableColumn<Record, Record>, TableCell<Record, Record>>() {
             @Override public TableCell<Record, Record> call(TableColumn<Record, Record> param) {
@@ -172,6 +218,9 @@ public class MarkerController extends Controller {
         }
 
         primaryStage.setScene(createTemplate);
+    }
+
+    public void handleSaveButton(ActionEvent actionEvent) {
     }
 }
 

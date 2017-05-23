@@ -95,7 +95,8 @@ public class UnzipUtility {
                 e.printStackTrace();
             }
         });
-        ((MarkerController)controller).updateTable();
+        if (controller instanceof MarkerController)
+            ((MarkerController)controller).updateTable();
         zipIn.close();
 //        System.out.println("done");
     }
