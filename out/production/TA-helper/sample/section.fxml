@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane hgap="15" vgap="13" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SectionControler">
+    <padding>
+        <Insets left="20" top="15"/>
+    </padding>
+    <ImageView fx:id="back" onMousePressed="#backToMainScene" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <image>
+            <Image url="@image/back-button.png" requestedHeight="75" requestedWidth="75"/>
+        </image>
+    </ImageView>
+    <Text styleClass="header" text="Enter Requirements" GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.halignment="CENTER"/>
+
+    <TableView fx:id="sectionView" prefHeight="500" prefWidth="890" GridPane.columnSpan="6" GridPane.rowIndex="3"
+               GridPane.rowSpan="5" GridPane.columnIndex="0">
+        <columns>
+            <TableColumn fx:id="content" text="Content" style="-fx-text-alignment: left" prefWidth="450">
+                <cellValueFactory>
+                    <PropertyValueFactory property="content"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="classname" text="Class name" style="-fx-text-alignment: left" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="className"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="method" text="Method name" style="-fx-text-alignment: left" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="methodName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="mark" text="Mark">
+                <cellValueFactory>
+                    <PropertyValueFactory property="mark"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="buttons" prefWidth="55"></TableColumn>
+        </columns>
+    </TableView>
+    <TextField fx:id="nameField" styleClass="filename" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="2" prefWidth="400" prefHeight="40" promptText="Enter new requirement"/>
+    <TextField fx:id="markField" styleClass="filename" GridPane.columnIndex="2" GridPane.rowIndex="8" GridPane.columnSpan="1" prefWidth="70" prefHeight="40" promptText="Mark"/>
+    <TextField fx:id="classField" styleClass="filename" GridPane.columnIndex="4" GridPane.rowIndex="8" GridPane.columnSpan="1" prefWidth="150" prefHeight="40" promptText="Class"/>
+    <TextField fx:id="methodField" styleClass="filename" GridPane.columnIndex="3" GridPane.rowIndex="8" GridPane.columnSpan="1" prefWidth="150" prefHeight="40" promptText="Method"/>
+    <Button onAction="#handleAddEvent" styleClass="choose" text="Add" minHeight="40" minWidth="80"
+            GridPane.columnIndex="4" GridPane.rowIndex="11" GridPane.rowSpan="1"/>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints prefHeight="75"/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints prefHeight="75"/>
+    </rowConstraints>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</GridPane>
+

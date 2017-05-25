@@ -1,6 +1,5 @@
 package sample;
 
-import org.json.simple.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;

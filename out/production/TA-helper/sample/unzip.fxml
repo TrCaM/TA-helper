@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<GridPane hgap="15" vgap="13" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.UnzipController">
+    <padding>
+        <Insets left="20" top="15"/>
+    </padding>
+    <ImageView fx:id="back" onMousePressed="#backToMainScene" GridPane.columnIndex="0" GridPane.rowIndex="0" >
+        <image>
+            <Image url="@image/back-button.png" requestedHeight="75" requestedWidth="75"/>
+        </image>
+    </ImageView>
+    <Text styleClass="header" text="Unzip Utility" GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.halignment="CENTER"/>
+    <Label text="Zip file: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="filename" id="filename" minHeight="40" prefWidth="450" promptText="File URL..."
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button onAction="#handleChooseButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
+            GridPane.rowIndex="1"/>
+    <Label text="Options:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Button onAction="#handleStartButton" styleClass="choose" text="START" minHeight="100" minWidth="80"
+            GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
+    <ScrollPane GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="8" GridPane.rowSpan="5">
+        <TextArea fx:id="loadingField" editable="false" prefWidth="650" wrapText="true"/>
+    </ScrollPane>
+    <fx:define>
+        <ToggleGroup fx:id="options"/>
+    </fx:define>
+    <children>
+        <RadioButton text="Only unzip the outer file" toggleGroup="$options" userData="0" GridPane.columnIndex="1"
+                     GridPane.rowIndex="4"/>
+        <RadioButton text="Unzip the 1 level inside" toggleGroup="$options" userData="1" GridPane.columnIndex="1"
+                     GridPane.rowIndex="5"/>
+        <RadioButton text="Unzip deep down" toggleGroup="$options" userData="-1" GridPane.columnIndex="1"
+                     GridPane.rowIndex="6"/>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints prefHeight="75"/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</GridPane>
