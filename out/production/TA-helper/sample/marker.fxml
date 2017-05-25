@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane hgap="15" vgap="13" alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.121"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MarkerController">
+    <padding>
+        <Insets left="20" top="15"/>
+    </padding>
+    <ImageView fx:id="back" onMousePressed="#backToMainScene" GridPane.columnIndex="0" GridPane.rowIndex="0" >
+        <image>
+            <Image url="@image/back-button.png" requestedHeight="75" requestedWidth="75"/>
+        </image>
+    </ImageView>
+    <Text styleClass="header" text="Marker Utility" GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.halignment="CENTER"/>
+    <Label text="Zip file: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="filename" styleClass="filename" minHeight="40" prefWidth="450" promptText="File URL..."
+               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button onAction="#handleChooseButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
+            GridPane.rowIndex="1"/>
+    <Label text="Scheme file: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="templatename" styleClass="filename" minHeight="40" prefWidth="450" promptText="Template URL..."
+               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Button onAction="#handleTemplateButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
+            GridPane.rowIndex="2"/>
+    <Button onAction="#handleCreateButton" styleClass="choose" text="Create template" GridPane.columnIndex="3"
+            GridPane.rowIndex="2"/>
+    <Button onAction="#handleStartButton" styleClass="choose" text="START" minHeight="100" minWidth="80"
+            GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
+    <Button fx:id="saveButton" onAction="#handleSaveButton" styleClass="choose" text="SAVE TO CSV" minHeight="100" minWidth="100" disable="true"
+            GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
+    <ScrollPane GridPane.columnIndex="0" prefHeight="500" prefWidth="900" GridPane.columnSpan="4" GridPane.rowIndex="8" GridPane.rowSpan="5">
+        <TableView fx:id="tableView" prefHeight="500" prefWidth="890">
+
+            <columns>
+                <TableColumn text="No" id="index" fx:id="index" prefWidth="50">
+                </TableColumn>
+                <TableColumn text="Name" style="-fx-text-alignment: left" prefWidth="600">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="mark" text="Mark" styleClass="middle" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="mark"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="edit"></TableColumn>
+                <TableColumn fx:id="buttons"></TableColumn>
+            </columns>
+        </TableView>
+    </ScrollPane>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints prefHeight="75"/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</GridPane>

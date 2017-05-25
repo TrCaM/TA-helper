@@ -168,7 +168,7 @@ public class MarkerController extends Controller {
         }
         if (template.exists()) {
             BufferedReader in = null;
-            commentFromFile = "";
+            StringBuilder builder = new StringBuilder();
             try {
                 in = new BufferedReader(new FileReader(template));
             } catch (FileNotFoundException e) {
@@ -179,13 +179,13 @@ public class MarkerController extends Controller {
             if (NumberUtils.isCreatable(mark)){
                 maxMark = Float.parseFloat(mark);
             } else {
-                commentFromFile += mark;
+                builder.append(mark);
             }
             while(scanner.hasNextLine()){
-                commentFromFile += scanner.nextLine()+ "\n";
+                builder.append(scanner.nextLine()+ "\n");
             }
 
-
+            commentFromFile = builder.toString();
             scanner.close();
 
         }
