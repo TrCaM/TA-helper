@@ -32,12 +32,12 @@
     </ImageView>
     <Text styleClass="header" text="Marker Utility" GridPane.columnIndex="1" GridPane.rowIndex="0"
           GridPane.halignment="CENTER"/>
-    <Label text="CSV file: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Label text="Zip file: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
     <TextField fx:id="filename" styleClass="filename" minHeight="40" prefWidth="450" promptText="File URL..."
                GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     <Button onAction="#handleChooseButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
             GridPane.rowIndex="1"/>
-    <Label text="Template file: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Label text="Scheme file: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <TextField fx:id="templatename" styleClass="filename" minHeight="40" prefWidth="450" promptText="Template URL..."
                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
     <Button onAction="#handleTemplateButton" styleClass="choose" text="Browse" GridPane.columnIndex="2"
@@ -46,10 +46,11 @@
             GridPane.rowIndex="2"/>
     <Button onAction="#handleStartButton" styleClass="choose" text="START" minHeight="100" minWidth="80"
             GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
-    <Button onAction="#handleSaveButton" styleClass="choose" text="SAVE TO CSV" minHeight="100" minWidth="100"
+    <Button fx:id="saveButton" onAction="#handleSaveButton" styleClass="choose" text="SAVE TO CSV" minHeight="100" minWidth="100" disable="true"
             GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.rowSpan="3"/>
     <ScrollPane GridPane.columnIndex="0" prefHeight="500" prefWidth="900" GridPane.columnSpan="4" GridPane.rowIndex="8" GridPane.rowSpan="5">
         <TableView fx:id="tableView" prefHeight="500" prefWidth="890">
+
             <columns>
                 <TableColumn text="No" id="index" fx:id="index" prefWidth="50">
                 </TableColumn>

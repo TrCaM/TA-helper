@@ -61,7 +61,7 @@ public class UnzipUtility {
                         @Override
                         public void run() {
                             try {
-                                unzip(filePath, filePath.replace(".zip", ""), calls== -1? -1:(calls-1));
+                                unzip(filePath, filePath.replace(".zip", "").trim(), calls== -1? -1:(calls-1));
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -106,8 +106,18 @@ public class UnzipUtility {
             Platform.runLater(() -> ((UnzipController)controller).getLoadingField().appendText("Unzipping: " + filePath + "\n"));
         else{
             if (FilenameUtils.getExtension(filePath).equals("zip")){
-                String name = filePath.substring(0, filePath.indexOf('_')).replaceAll("-", " ");
-                Platform.runLater(() -> ((MarkerController)controller).addRecord(name));
+                int firstDivide = filePath.indexOf('_');
+                String name = filePath.substring(0, firstDivide).replaceAll("-", " ");
+                String id = null;
+                try {
+                    id = filePath.substring(firstDivide+1, filePath.indexOf('_', firstDivide+1));
+                    String finalId = id;
+                    Platform.runLater(() -> ((MarkerController)controller).addRecord(name, finalId));
+                } catch (Exception e) {
+                    System.out.println(filePath);
+                    System.out.println(firstDivide+1 + " " + filePath.indexOf('_', firstDivide+1));
+                }
+
             }
         }
     }
